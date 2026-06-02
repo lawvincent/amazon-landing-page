@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intimate Wellness | Professional Intimate Health Tools</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #f8f1e3 0%, #f0e6d9 100%); }
+    .modal { animation: fadeIn 0.3s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+  <!-- Age Verification Modal -->
+  <div id="ageModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 modal">
+    <div class="bg-white rounded-3xl p-8 max-w-md text-center shadow-2xl mx-4">
+      <h2 class="text-3xl font-bold mb-4 text-gray-900">18+ Exclusive Space</h2>
+      <p class="text-gray-600 mb-6">This page features adult wellness tools and is intended for individuals 18 years of age and older.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="confirmAge(true)" 
+                class="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-medium text-lg transition shadow-lg">
+          I am 18 or older
+        </button>
+        <button onclick="confirmAge(false)" 
+                class="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-2xl font-medium text-lg transition">
+          I am under 18
+        </button>
+      </div>
+      <p class="text-xs text-gray-400 mt-6"><i class="fas fa-lock mr-1"></i> We strictly enforce age restrictions</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="bg-white border-b sticky top-0 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-2xl font-bold text-emerald-700">
+        <i class="fas fa-leaf"></i> Intimate Wellness
+      </div>
+      <a href="#amazon" class="px-6 py-2.5 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition flex items-center gap-2">
+        <i class="fab fa-amazon text-orange-400"></i> Shop Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg py-12 md:py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left: Copy & CTA -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="flex text-orange-400 text-sm">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <span class="text-sm text-gray-600 font-medium">Over 2,000+ Happy Customers</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
+          Professional Care.<br><span class="text-emerald-700">Make Every Day Gentler.</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Premium medical-grade silicone · Whisper-quiet motor · 100% waterproof. Shipped discreetly to your door.</p>
+        
+        <!-- Email Capture / Promo Code -->
+        <div id="promo-container" class="bg-white rounded-3xl p-2 shadow-xl max-w-md border border-emerald-100">
+          <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2">
+            <input type="email" id="emailInput" placeholder="Enter email for 15% OFF" required
+                   class="flex-1 px-6 py-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50 text-gray-700">
+            <button type="submit" 
+                    class="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold transition shadow-md whitespace-nowrap">
+              Get My Code
+            </button>
+          </form>
+        </div>
+        
+        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm font-medium text-gray-600">
+          <div class="flex items-center gap-2"><i class="fas fa-box text-emerald-600 text-lg"></i> Discreet Shipping</div>
+          <div class="flex items-center gap-2"><i class="fab fa-amazon text-gray-800 text-lg"></i> Prime Delivery Available</div>
+        </div>
+      </div>
+      
+      <!-- Right: GIF Display -->
+      <div class="flex flex-col items-center relative">
+        <div class="absolute inset-0 bg-emerald-200 rounded-full blur-3xl opacity-30 transform scale-90"></div>
+        
+        <!-- 【修改点】规范了图片命名路径，建议在本地创建 images 文件夹 -->
+        <img src="./images/product-showcase.gif" 
+             alt="Premium Wellness Wand in action" 
+             class="relative z-10 rounded-3xl shadow-2xl w-full max-w-md object-cover border-4 border-white">
+        
+        <a href="#amazon" class="md:hidden mt-8 w-full text-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold text-lg shadow-lg transition flex justify-center items-center gap-2 amazon-btn">
+          <i class="fab fa-amazon"></i> View Price on Amazon
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-gray-50 p-8 rounded-3xl text-center hover:shadow-lg transition">
+          <i class="fas fa-volume-mute text-5xl text-emerald-600 mb-6"></i>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Ultra-Quiet Motor</h3>
+          <p class="text-gray-600">Powerful vibrations without the noise. Perfect for absolute privacy.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-3xl text-center hover:shadow-lg transition">
+          <i class="fas fa-bath text-5xl text-emerald-600 mb-6"></i>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">100% Waterproof</h3>
+          <p class="text-gray-600">IPX7 waterproof rating. Easy to clean and bath-friendly.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-3xl text-center hover:shadow-lg transition">
+          <i class="fas fa-shield-heart text-5xl text-emerald-600 mb-6"></i>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Medical-Grade Safety</h3>
+          <p class="text-gray-600">Silky smooth, body-safe silicone. Phthalate-free and CE certified.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amazon CTA Section -->
+  <section id="amazon" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Experience It?</h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">Complete your purchase securely on Amazon. Enjoy fast, discreet shipping and excellent customer support.</p>
+      
+      <!-- 【修改点】为你配置的基础亚马逊引路洞察链接（基础样式，JS会自动在其后追加参数） -->
+      <a id="mainAmazonLink" 
+         href="https://www.amazon.com/dp/YOUR_ASIN_HERE?maas=maas_adg_api_YOUR_ADG_ID_HERE_d" 
+         target="_blank"
+         class="amazon-btn inline-flex flex-col sm:flex-row items-center gap-4 bg-orange-500 hover:bg-orange-600 text-white text-2xl font-bold px-10 py-5 rounded-full transition shadow-xl hover:scale-105 transform">
+        <div class="flex items-center gap-3">
+          <i class="fab fa-amazon text-3xl"></i>
+          <span>Buy Now on Amazon</span>
+        </div>
+      </a>
+      
+      <div class="mt-8 flex justify-center gap-6 text-gray-400 text-sm">
+        <span><i class="fas fa-check text-emerald-400 mr-1"></i> Secure Checkout</span>
+        <span><i class="fas fa-check text-emerald-400 mr-1"></i> 30-Day Returns</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>© 2026 Intimate Wellness. All Rights Reserved.</p>
+      <p class="mt-2 text-gray-500">This site is a participant in the Amazon Services LLC Associates Program. Final purchase completed on Amazon.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 【核心清洗与引路洞察逻辑】
+    // 自动捕获当前页面URL中的外部广告追踪参数（如 fbclid, ttclid, gclid, utm_content等）
+    // 并自动追加到所有跳转亚马逊的链接中，确保引路洞察（Amazon Attribution）能100%抓到细分流向
+    function cleanAndBuildAmazonLinks() {
+      const currentUrlParams = new URLSearchParams(window.location.search);
+      const amazonButtons = document.querySelectorAll('.amazon-btn, #mainAmazonLink');
+      
+      if (currentUrlParams.toString()) {
+        amazonButtons.forEach(btn => {
+          let originalHref = btn.getAttribute('href');
+          // 如果是锚点链接（如 #amazon），不作修改
+          if(originalHref.startsWith('#')) return;
+
+          try {
+            let urlObj = new URL(originalHref);
+            // 将外流广告的参数，作为自定义参数追加给亚马逊链接
+            currentUrlParams.forEach((value, key) => {
+              // 亚马逊引路洞察支持将广告媒介、系列等作为后缀带入
+              urlObj.searchParams.set(key, value);
+            });
+            btn.setAttribute('href', urlObj.toString());
+          } catch(e) {
+            console.error("Link processing error:", e);
+          }
+        });
+      }
+    }
+
+    // Age verification
+    function confirmAge(isAdult) {
+      if (isAdult) {
+        document.getElementById('ageModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // 用户确认成年后，初始化链接
+        cleanAndBuildAmazonLinks();
+      } else {
+        window.location.href = 'https://www.google.com';
+      }
+    }
+
+    // Email submit
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      if (email) {
+        const container = document.getElementById('promo-container');
+        container.innerHTML = `
+          <div class="p-5 bg-emerald-50 rounded-2xl border-2 border-emerald-500 text-center animate-[fadeIn_0.5s_ease-out]">
+            <p class="text-gray-600 font-medium mb-2">Success! Your 15% OFF code is:</p>
+            <div class="bg-white py-3 px-6 rounded-xl inline-block mb-4 shadow-sm border border-gray-100">
+              <span class="text-3xl font-black tracking-widest text-emerald-700">SAVE15WELL</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-4">Apply this code at Amazon checkout</p>
+            <a href="#amazon" class="block w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition">
+              Use Code on Amazon Now
+            </a>
+          </div>
+        `;
+        
+        // 【自动化流量清洗埋点】
+        // 当用户愿意输入邮箱，说明是高意向精准流量。你可以在此处插入 Pixel / GA4 事件
+        // 例如：fbq('track', 'Lead'); 或者 ttq.track('CompleteRegistration');
+        console.log('High-intent Traffic Cleaned & Captured:', email);
+      }
+    }
+
+    // 初始化
+    window.onload = () => {
+      document.body.style.overflow = 'hidden'; 
+      document.getElementById('ageModal').style.display = 'flex';
+    };
+  </script>
+</body>
+</html>
